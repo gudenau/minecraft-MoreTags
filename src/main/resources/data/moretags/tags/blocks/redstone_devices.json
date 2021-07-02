@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:dispenser",
+    "minecraft:daylight_detector",
+    "minecraft:dropper",
+    "minecraft:hopper",
+    "#moretags:redstone_rails",
+    "#moretags:pistons",
+    "minecraft:sculk_sensor"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "moretags",
+  "version": "${version}",
+
+  "name": "More Tags",
+  "description": "Adds a bunch of tags that Mojang hasn't added!",
+  "authors": [
+    "gudenau"
+  ],
+  "contact": {
+    "homepage": "",
+    "sources": ""
+  },
+
+  "license": "",
+  "icon": "assets/moretags/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.gudenau.minecraft.moretags.MoreTags"
+    ]
+  },
+  "mixins": [
+    "moretags.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "fabric": "*",
+    "minecraft": "1.17.x",
+    "java": ">=16"
+  },
+  "suggests": {}
+}

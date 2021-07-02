@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.gudenau.minecraft.moretags.mixins",
+  "compatibilityLevel": "JAVA_16",
+  "mixins": [
+    "bookshelves.EnchantingTableBlockMixin",
+    "bookshelves.EnchantmentScreenHandlerMixin",
+    "stickyblocks.PistonHandlerMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
