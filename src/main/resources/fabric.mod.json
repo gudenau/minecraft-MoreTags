@@ -9,8 +9,8 @@
     "gudenau"
   ],
   "contact": {
-    "homepage": "",
-    "sources": ""
+    "homepage": "https://modrinth.com/mod/moretags",
+    "sources": "https://github.com/gudenau/minecraft-MoreTags"
   },
 
   "license": "MIT",
