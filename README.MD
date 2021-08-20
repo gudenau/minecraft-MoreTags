@@ -6,7 +6,7 @@ Adds a bunch of tags to Minecraft for mod authors and data pack authors to use!
 
 ### Currently added block tags
 
-* bookshelves <br> Effects what enchanting tables view as bookshelves.
+* bookshelves <br> Affects what enchanting tables view as bookshelves.
 * glass
 * redstone_rails
 * bricks
@@ -14,9 +14,9 @@ Adds a bunch of tags to Minecraft for mod authors and data pack authors to use!
 * skulls
 * chests
 * glazed_terracotta
-* slime_blocks <br> Effects what pistons view as slime blocks.
+* slime_blocks <br> Affects what pistons view as slime blocks.
 * concrete
-* honey_blocks <br> Effects what pistons view as honey blocks.
+* honey_blocks <br> Affects what pistons view as honey blocks.
 * sticky_blocks
 * concrete_powder
 * infested
@@ -36,6 +36,8 @@ Adds a bunch of tags to Minecraft for mod authors and data pack authors to use!
 * glass_blocks
 * redstone
 * wall_skulls
+* farmland <br> Affects where plants can grow
+* moist_farmland <br> Affects how fast plants grow
 
 ---
 
