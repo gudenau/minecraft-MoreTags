@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "#moretags:moist_farmland",
+    "minecraft:farmland"
+  ]
+}

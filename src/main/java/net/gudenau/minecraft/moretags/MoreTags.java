@@ -1,11 +1,14 @@
 package net.gudenau.minecraft.moretags;
 
-import java.util.stream.Stream;
+import com.google.common.collect.ImmutableSet;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.tag.TagRegistry;
+import net.gudenau.minecraft.moretags.mixins.farmland.VillagerProfessionAccessor;
 import net.minecraft.block.Block;
 import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
+import net.minecraft.village.VillagerProfession;
 
 public final class MoreTags implements ModInitializer{
     public static final String MOD_ID = "moretags";
@@ -40,9 +43,14 @@ public final class MoreTags implements ModInitializer{
     public static final Tag<Block> SLIME_BLOCKS = TagRegistry.block(new Identifier(MOD_ID, "slime_blocks"));
     public static final Tag<Block> CONCRETE = TagRegistry.block(new Identifier(MOD_ID, "concrete"));
     public static final Tag<Block> CONCRETE_POWDER = TagRegistry.block(new Identifier(MOD_ID, "concrete_powder"));
+    public static final Tag<Block> FARMLAND = TagRegistry.block(new Identifier(MOD_ID, "farmland"));
+    public static final Tag<Block> MOIST_FARMLAND = TagRegistry.block(new Identifier(MOD_ID, "moist_farmland"));
     
     @Override
     public void onInitialize(){
-    
+        ServerLifecycleEvents.SERVER_STARTED.register((server)->{
+            // Support for farmland, Vanilla assumes it will always be a specific block and we change that during runtime
+            ((VillagerProfessionAccessor)VillagerProfession.FARMER).setSecondaryJobSites(ImmutableSet.copyOf(FARMLAND.values()));
+        });
     }
 }

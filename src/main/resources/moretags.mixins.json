@@ -6,6 +6,10 @@
   "mixins": [
     "bookshelves.EnchantingTableBlockMixin",
     "bookshelves.EnchantmentScreenHandlerMixin",
+    "farmland.CropBlockMixin",
+    "farmland.PlantBlockMixin",
+    "farmland.RabbitEntity$EatCarrotCropGoalMixin",
+    "farmland.VillagerProfessionAccessor",
     "stickyblocks.PistonHandlerMixin"
   ],
   "client": [
