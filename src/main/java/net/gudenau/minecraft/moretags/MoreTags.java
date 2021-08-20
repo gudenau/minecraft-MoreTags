@@ -1,6 +1,5 @@
 package net.gudenau.minecraft.moretags;
 
-import java.util.stream.Stream;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.tag.TagRegistry;
 import net.minecraft.block.Block;
@@ -9,8 +8,9 @@ import net.minecraft.util.Identifier;
 
 public final class MoreTags implements ModInitializer{
     public static final String MOD_ID = "moretags";
-    
+
     public static final Tag<Block> BOOKSHELVES = TagRegistry.block(new Identifier(MOD_ID, "bookshelves"));
+    public static final Tag<Block> FARMLAND = TagRegistry.block(new Identifier(MOD_ID, "farmland"));
     public static final Tag<Block> ORES = TagRegistry.block(new Identifier(MOD_ID, "ores"));
     public static final Tag<Block> STRIPPED_WOOD = TagRegistry.block(new Identifier(MOD_ID, "stripped_wood"));
     public static final Tag<Block> STRIPPED_LOGS = TagRegistry.block(new Identifier(MOD_ID, "stripped_logs"));
