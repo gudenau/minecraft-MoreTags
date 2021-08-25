@@ -39,6 +39,10 @@ Adds a bunch of tags to Minecraft for mod authors and data pack authors to use!
 * farmland <br> Affects where plants can grow
 * moist_farmland <br> Affects how fast plants grow
 
+### Currently added item tags
+
+* skulls
+
 ---
 
 ### For mod authors

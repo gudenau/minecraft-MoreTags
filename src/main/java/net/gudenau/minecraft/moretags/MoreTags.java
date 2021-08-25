@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.tag.TagRegistry;
 import net.gudenau.minecraft.moretags.mixins.farmland.VillagerProfessionAccessor;
 import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 import net.minecraft.village.VillagerProfession;
@@ -45,6 +46,8 @@ public final class MoreTags implements ModInitializer{
     public static final Tag<Block> CONCRETE_POWDER = TagRegistry.block(new Identifier(MOD_ID, "concrete_powder"));
     public static final Tag<Block> FARMLAND = TagRegistry.block(new Identifier(MOD_ID, "farmland"));
     public static final Tag<Block> MOIST_FARMLAND = TagRegistry.block(new Identifier(MOD_ID, "moist_farmland"));
+    
+    public static final Tag<Item> SKULL_ITEMS = TagRegistry.item(new Identifier(MOD_ID, "skull"));
     
     @Override
     public void onInitialize(){
