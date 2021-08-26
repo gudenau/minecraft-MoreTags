@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
 
 // This is so stupid.
-public class Plugin implements IMixinConfigPlugin{
+public final class Plugin implements IMixinConfigPlugin{
     private static final boolean DEV;
     static{
         boolean dev;
