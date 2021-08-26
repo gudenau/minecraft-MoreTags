@@ -9,11 +9,13 @@
     "farmland.CropBlockMixin",
     "farmland.PlantBlockMixin",
     "farmland.RabbitEntity$EatCarrotCropGoalMixin",
+    "farmland.RabbitEntity$EatCarrotCropGoal$DevMixin",
     "farmland.VillagerProfessionAccessor",
     "stickyblocks.PistonHandlerMixin"
   ],
   "client": [
   ],
+  "plugin": "net.gudenau.minecraft.moretags.mixin.Plugin",
   "injectors": {
     "defaultRequire": 1
   }

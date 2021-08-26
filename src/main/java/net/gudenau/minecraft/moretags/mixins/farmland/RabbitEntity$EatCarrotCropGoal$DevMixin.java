@@ -8,10 +8,10 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(targets = "net/minecraft/entity/passive/RabbitEntity$EatCarrotCropGoal")
-public abstract class RabbitEntity$EatCarrotCropGoalMixin{
+public abstract class RabbitEntity$EatCarrotCropGoal$DevMixin{
     // Loom is dumb at times, this should fix an issue with it.
     @Redirect(
-        method = "method_6296",
+        method = "isTargetPos",
         at = @At(
             value = "INVOKE",
             target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z"
