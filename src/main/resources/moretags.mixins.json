@@ -8,14 +8,17 @@
     "bookshelves.EnchantmentScreenHandlerMixin",
     "farmland.CropBlockMixin",
     "farmland.PlantBlockMixin",
-    "farmland.RabbitEntity$EatCarrotCropGoalMixin",
     "farmland.RabbitEntity$EatCarrotCropGoal$DevMixin",
+    "farmland.RabbitEntity$EatCarrotCropGoalMixin",
     "farmland.VillagerProfessionAccessor",
+    "retro.OldTagApiSupport",
     "stickyblocks.PistonHandlerMixin"
   ],
   "client": [
+    "maps.HeldItemRendererMixin",
+    "maps.ItemFrameEntityRendererMixin"
   ],
-  "plugin": "net.gudenau.minecraft.moretags.mixin.Plugin",
+  "plugin": "net.gudenau.minecraft.moretags.mixins.Plugin",
   "injectors": {
     "defaultRequire": 1
   }
