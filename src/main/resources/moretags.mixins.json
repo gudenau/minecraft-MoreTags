@@ -15,8 +15,6 @@
     "stickyblocks.PistonHandlerMixin"
   ],
   "client": [
-    "maps.HeldItemRendererMixin",
-    "maps.ItemFrameEntityRendererMixin"
   ],
   "plugin": "net.gudenau.minecraft.moretags.mixins.Plugin",
   "injectors": {

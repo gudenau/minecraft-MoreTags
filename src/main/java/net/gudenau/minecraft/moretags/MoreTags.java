@@ -49,7 +49,6 @@ public final class MoreTags implements ModInitializer{
     public static final Tag<Block> MOIST_FARMLAND = createBlockTag(new Identifier(MOD_ID, "moist_farmland"));
     
     public static final Tag<Item> SKULL_ITEMS = createItemTag(new Identifier(MOD_ID, "skull"));
-    public static final Tag<Item> FILLED_MAP = createItemTag(new Identifier(MOD_ID, "filled_map"));
     
     private static Tag<Block> createBlockTag(Identifier identifier){
         return TagFactory.BLOCK.create(identifier);

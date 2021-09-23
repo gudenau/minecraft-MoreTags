@@ -42,7 +42,6 @@ Adds a bunch of tags to Minecraft for mod authors and data pack authors to use!
 ### Currently added item tags
 
 * skulls
-* filled_map
 
 ---
 
