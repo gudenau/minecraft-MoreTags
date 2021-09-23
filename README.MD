@@ -42,6 +42,7 @@ Adds a bunch of tags to Minecraft for mod authors and data pack authors to use!
 ### Currently added item tags
 
 * skulls
+* filled_map
 
 ---
 
@@ -57,7 +58,9 @@ repositories {
 }
 
 dependencies {
-    include(modImplementation "net.gudenau.minecraft:MoreTags:${project.moreTagsVersion}")
+    modImplementation include("net.gudenau.minecraft:MoreTags:${project.moreTagsVersion}"){
+        transitive = false
+    }
 }
 ```
 and add this to your `gradle.properties`, replacing `[version]` with the version you want to use:
