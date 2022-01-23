@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "#moretags:slime_blocks",
-    "#moretags:honey_blocks"
+    "#c:slime_blocks",
+    "#c:honey_blocks"
   ]
 }

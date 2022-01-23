@@ -5,8 +5,8 @@
     "minecraft:daylight_detector",
     "minecraft:dropper",
     "minecraft:hopper",
-    "#moretags:redstone_rails",
-    "#moretags:pistons",
+    "#c:redstone_rails",
+    "#c:pistons",
     "minecraft:sculk_sensor"
   ]
 }

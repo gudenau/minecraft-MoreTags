@@ -3,7 +3,7 @@
   "values": [
     "minecraft:redstone_wire",
     "minecraft:redstone_block",
-    "#moretags:redstone_devices",
-    "#moretags:redstone_gates"
+    "#c:redstone_devices",
+    "#c:redstone_gates"
   ]
 }

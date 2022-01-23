@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "#moretags:floor_skulls",
-    "#moretags:wall_skulls"
+    "#c:floor_skulls",
+    "#c:wall_skulls"
   ]
 }

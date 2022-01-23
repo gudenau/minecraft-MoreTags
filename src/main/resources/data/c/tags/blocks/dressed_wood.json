@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "#moretags:dressed_logs",
-    "#moretags:dressed_bark"
+    "#c:dressed_logs",
+    "#c:dressed_bark"
   ]
 }

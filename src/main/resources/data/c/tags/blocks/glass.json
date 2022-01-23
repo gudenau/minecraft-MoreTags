@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "#moretags:glass_blocks",
-    "#moretags:glass_panes"
+    "#c:glass_blocks",
+    "#c:glass_panes"
   ]
 }

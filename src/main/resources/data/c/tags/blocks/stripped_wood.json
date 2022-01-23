@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "#moretags:stripped_logs",
-    "#moretags:stripped_bark"
+    "#c:stripped_logs",
+    "#c:stripped_bark"
   ]
 }
