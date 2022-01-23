@@ -58,6 +58,14 @@ public final class Plugin implements IMixinConfigPlugin{
                 default -> true;
             }
         ),
+        // BCLib also does their own enchanting tables with the same tag name.
+        BCLIB("bclib", null, VersionCheckType.ALWAYS, (mixinName)->
+            switch(mixinName){
+                case "net.gudenau.minecraft.moretags.mixins.bookshelves.EnchantingTableBlockMixin",
+                    "net.gudenau.minecraft.moretags.mixins.bookshelves.EnchantmentScreenHandlerMixin" -> false;
+                default -> true;
+            }
+        ),
         ;
     
         private final String modId;
