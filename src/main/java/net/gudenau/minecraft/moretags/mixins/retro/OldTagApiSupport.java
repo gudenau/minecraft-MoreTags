@@ -10,13 +10,13 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 
 @Mixin(MoreTags.class)
-public abstract class OldTagApiSupport{
+public abstract class OldTagApiSupport {
     /**
      * @author gudenau
      * @reason To support older FAPI versions
      */
     @Overwrite
-    private static Tag<Block> createBlockTag(Identifier identifier){
+    private static Tag<Block> createBlockTag(Identifier identifier) {
         return TagRegistry.block(identifier);
     }
     
@@ -25,7 +25,7 @@ public abstract class OldTagApiSupport{
      * @reason To support older FAPI versions
      */
     @Overwrite
-    private static Tag<Item> createItemTag(Identifier identifier){
+    private static Tag<Item> createItemTag(Identifier identifier) {
         return TagRegistry.item(identifier);
     }
 }

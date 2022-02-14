@@ -11,7 +11,7 @@ import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 import net.minecraft.village.VillagerProfession;
 
-public final class MoreTags implements ModInitializer{
+public final class MoreTags implements ModInitializer {
     public static final String MOD_ID = "moretags";
     private static final String COMMON_NAMESPACE = "c";
     
@@ -50,19 +50,19 @@ public final class MoreTags implements ModInitializer{
     
     public static final Tag<Item> SKULL_ITEMS = createItemTag(new Identifier(COMMON_NAMESPACE, "skull"));
     
-    private static Tag<Block> createBlockTag(Identifier identifier){
+    private static Tag<Block> createBlockTag(Identifier identifier) {
         return TagFactory.BLOCK.create(identifier);
     }
     
-    private static Tag<Item> createItemTag(Identifier identifier){
+    private static Tag<Item> createItemTag(Identifier identifier) {
         return TagFactory.ITEM.create(identifier);
     }
     
     @Override
-    public void onInitialize(){
-        ServerLifecycleEvents.SERVER_STARTED.register((server)->{
+    public void onInitialize() {
+        ServerLifecycleEvents.SERVER_STARTED.register((server) -> {
             // Support for farmland, Vanilla assumes it will always be a specific block and we change that during runtime
-            ((VillagerProfessionAccessor)VillagerProfession.FARMER).setSecondaryJobSites(ImmutableSet.copyOf(FARMLAND.values()));
+            ((VillagerProfessionAccessor) VillagerProfession.FARMER).setSecondaryJobSites(ImmutableSet.copyOf(FARMLAND.values()));
         });
     }
 }

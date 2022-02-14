@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(PlantBlock.class)
-public abstract class PlantBlockMixin{
+public abstract class PlantBlockMixin {
     @Redirect(
         method = "canPlantOnTop",
         at = @At(
@@ -17,7 +17,7 @@ public abstract class PlantBlockMixin{
             target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z"
         )
     )
-    private boolean canPlantOnTop(BlockState blockState, Block block){
+    private boolean canPlantOnTop(BlockState blockState, Block block) {
         return blockState.isIn(MoreTags.FARMLAND);
     }
 }

@@ -17,8 +17,6 @@ import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
 
 public final class Plugin implements IMixinConfigPlugin{
-    private static final boolean DEV = FabricLoader.getInstance().isDevelopmentEnvironment();
-    
     private static final Logger LOGGER = LogManager.getLogger("MoreTags");
     
     private enum VersionCheckType{
@@ -40,13 +38,6 @@ public final class Plugin implements IMixinConfigPlugin{
     }
     
     private enum CompatibilityLayer {
-        LOOM_FIX(null, null, VersionCheckType.ALWAYS, (mixinName)->
-            switch(mixinName){
-                case "net.gudenau.minecraft.moretags.mixins.farmland.RabbitEntity$EatCarrotCropGoalMixin" -> !DEV;
-                case "net.gudenau.minecraft.moretags.mixins.farmland.RabbitEntity$EatCarrotCropGoal$DevMixin" -> DEV;
-                default -> true;
-            }
-        ),
         FAPI_TAGS("fabric-tag-extensions-v0", "1.2.2", VersionCheckType.OLDER_THAN, (mixinName)->
             !"net.gudenau.minecraft.moretags.mixins.retro.OldTagApiSupport".equals(mixinName)
         ),
@@ -99,7 +90,7 @@ public final class Plugin implements IMixinConfigPlugin{
                 LOGGER.error("Failed to get SemanticVersion for mod %s".formatted(modId));
                 return false;
             }
-            SemanticVersion expectedVersion = null;
+            SemanticVersion expectedVersion;
             try {
                 expectedVersion = SemanticVersion.parse(this.modVersion);
             } catch (VersionParsingException e) {

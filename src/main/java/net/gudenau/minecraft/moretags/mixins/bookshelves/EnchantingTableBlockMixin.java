@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(EnchantingTableBlock.class)
-public abstract class EnchantingTableBlockMixin{
+public abstract class EnchantingTableBlockMixin {
     @Redirect(
         method = "randomDisplayTick",
         at = @At(
@@ -17,7 +17,7 @@ public abstract class EnchantingTableBlockMixin{
             target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z"
         )
     )
-    private boolean randomDisplayTick$BlockState$isOf(BlockState blockState, Block block){
+    private boolean randomDisplayTick$BlockState$isOf(BlockState blockState, Block block) {
         return MoreTags.BOOKSHELVES.contains(blockState.getBlock());
     }
 }

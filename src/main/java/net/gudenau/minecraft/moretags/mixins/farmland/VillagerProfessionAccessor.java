@@ -8,6 +8,6 @@ import org.spongepowered.asm.mixin.Mutable;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
 @Mixin(VillagerProfession.class)
-public interface VillagerProfessionAccessor{
+public interface VillagerProfessionAccessor {
     @Accessor @Mutable void setSecondaryJobSites(ImmutableSet<Block> value);
 }

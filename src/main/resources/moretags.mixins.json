@@ -8,8 +8,8 @@
     "bookshelves.EnchantmentScreenHandlerMixin",
     "farmland.CropBlockMixin",
     "farmland.PlantBlockMixin",
-    "farmland.RabbitEntity$EatCarrotCropGoal$DevMixin",
     "farmland.RabbitEntity$EatCarrotCropGoalMixin",
+    "farmland.StemBlockMixin",
     "farmland.VillagerProfessionAccessor",
     "retro.OldTagApiSupport",
     "stickyblocks.PistonHandlerMixin"
