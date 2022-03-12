@@ -13,15 +13,15 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(StemBlock.class)
+@Mixin(value = StemBlock.class, priority = 1001)
 public abstract class StemBlockMixin {
     @Inject(
         method = "canPlantOnTop",
-        at = @At("HEAD"),
+        at = @At("RETURN"),
         cancellable = true
     )
     private void canPlantOnTop(BlockState floor, BlockView world, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
-        cir.setReturnValue(floor.isIn(MoreBlockTags.FARMLAND));
+        cir.setReturnValue(cir.getReturnValue() || floor.isIn(MoreBlockTags.FARMLAND));
     }
     
     @Redirect(

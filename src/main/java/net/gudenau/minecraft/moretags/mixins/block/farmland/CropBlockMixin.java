@@ -9,8 +9,8 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(CropBlock.class)
-public abstract class CropBlockMixin {
+@Mixin(value = CropBlock.class, priority = 1001)
+public abstract class CropBlockMixin{
     @Redirect(
         method = "getAvailableMoisture",
         at = @At(
@@ -46,10 +46,10 @@ public abstract class CropBlockMixin {
     
     @Inject(
         method = "canPlantOnTop",
-        at = @At("HEAD"),
+        at = @At("RETURN"),
         cancellable = true
     )
     private void canPlantOnTop(BlockState floor, BlockView world, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
-        cir.setReturnValue(floor.isIn(MoreBlockTags.FARMLAND));
+        cir.setReturnValue(cir.getReturnValue() || floor.isIn(MoreBlockTags.FARMLAND));
     }
 }
