@@ -19,7 +19,7 @@ public abstract class PistonHandlerMixin {
         cancellable = true
     )
     private static void isBlockSticky(BlockState state, CallbackInfoReturnable<Boolean> cir) {
-        cir.setReturnValue(MoreTags.STICKY_BLOCKS.contains(state.getBlock()));
+        cir.setReturnValue(state.isIn(MoreTags.STICKY_BLOCKS));
     }
     
     @Inject(
@@ -31,9 +31,9 @@ public abstract class PistonHandlerMixin {
         var block = state.getBlock();
         var adjacentBlock = adjacentState.getBlock();
         
-        if (block != adjacentBlock && MoreTags.HONEY_BLOCKS.contains(block) && MoreTags.SLIME_BLOCKS.contains(adjacentBlock)) {
+        if (block != adjacentBlock && state.isIn(MoreTags.HONEY_BLOCKS) && adjacentState.isIn(MoreTags.SLIME_BLOCKS)) {
             cir.setReturnValue(true);
-        } else if (MoreTags.SLIME_BLOCKS.contains(adjacentBlock) && MoreTags.HONEY_BLOCKS.contains(block)) {
+        } else if (adjacentState.isIn(MoreTags.SLIME_BLOCKS) && state.isIn(MoreTags.HONEY_BLOCKS)) {
             cir.setReturnValue(false);
         } else {
             cir.setReturnValue(isBlockSticky(state) || isBlockSticky(adjacentState));

@@ -36,11 +36,8 @@ public final class Plugin implements IMixinConfigPlugin{
             return predicate.test(suppliedVersion, expectedVersion);
         }
     }
-    
+
     private enum CompatibilityLayer {
-        FAPI_TAGS("fabric-tag-extensions-v0", "1.2.2", VersionCheckType.OLDER_THAN, (mixinName)->
-            !"net.gudenau.minecraft.moretags.mixins.retro.OldTagApiSupport".equals(mixinName)
-        ),
         // All the Blocks You Want bulldozes some of our injection points, at least they do the same thing we do...
         ATBYW("atbyw", null, VersionCheckType.ALWAYS, (mixinName)->
             switch(mixinName){

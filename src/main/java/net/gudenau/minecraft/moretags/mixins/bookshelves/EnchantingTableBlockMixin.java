@@ -11,13 +11,13 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 @Mixin(EnchantingTableBlock.class)
 public abstract class EnchantingTableBlockMixin {
     @Redirect(
-        method = "randomDisplayTick",
+        method = "canAccessBookshelf",
         at = @At(
             value = "INVOKE",
             target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z"
         )
     )
-    private boolean randomDisplayTick$BlockState$isOf(BlockState blockState, Block block) {
-        return MoreTags.BOOKSHELVES.contains(blockState.getBlock());
+    private static boolean canAccessBookshelf$BlockState$isOf(BlockState blockState, Block block) {
+        return blockState.isIn(MoreTags.BOOKSHELVES);
     }
 }
