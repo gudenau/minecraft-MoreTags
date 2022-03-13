@@ -1,6 +1,6 @@
 {
   "replace": false,
   "values": [
-    "minecraft:activator_dust"
+    "minecraft:redstone_dust"
   ]
 }
