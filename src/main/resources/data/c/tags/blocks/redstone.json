@@ -1,8 +1,8 @@
 {
   "replace": false,
   "values": [
-    "minecraft:redstone_wire",
     "minecraft:redstone_block",
+    "#c:redstone_wire",
     "#c:redstone_devices",
     "#c:redstone_gates"
   ]

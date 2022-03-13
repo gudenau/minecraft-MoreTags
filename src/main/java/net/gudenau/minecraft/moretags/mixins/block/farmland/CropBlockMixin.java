@@ -1,6 +1,6 @@
-package net.gudenau.minecraft.moretags.mixins.farmland;
+package net.gudenau.minecraft.moretags.mixins.block.farmland;
 
-import net.gudenau.minecraft.moretags.MoreTags;
+import net.gudenau.minecraft.moretags.MoreBlockTags;
 import net.minecraft.block.*;
 import net.minecraft.state.property.Property;
 import net.minecraft.util.math.BlockPos;
@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(CropBlock.class)
-public abstract class CropBlockMixin{
+public abstract class CropBlockMixin {
     @Redirect(
         method = "getAvailableMoisture",
         at = @At(
@@ -25,8 +25,8 @@ public abstract class CropBlockMixin{
             )
         )
     )
-    private static boolean isBlockFarmland(BlockState blockState, Block block){
-        return blockState.isIn(MoreTags.FARMLAND);
+    private static boolean isBlockFarmland(BlockState blockState, Block block) {
+        return blockState.isIn(MoreBlockTags.FARMLAND);
     }
     
     @Redirect(
@@ -36,11 +36,11 @@ public abstract class CropBlockMixin{
             target = "Lnet/minecraft/block/BlockState;get(Lnet/minecraft/state/property/Property;)Ljava/lang/Comparable;"
         )
     )
-    private static Comparable<?> getFarmlandMoisture(BlockState blockState, Property<Integer> property){
+    private static Comparable<?> getFarmlandMoisture(BlockState blockState, Property<Integer> property) {
         if(blockState.contains(FarmlandBlock.MOISTURE)){
             return blockState.get(FarmlandBlock.MOISTURE);
         }else{
-            return blockState.isIn(MoreTags.MOIST_FARMLAND) ? FarmlandBlock.MAX_MOISTURE : 0;
+            return blockState.isIn(MoreBlockTags.MOIST_FARMLAND) ? FarmlandBlock.MAX_MOISTURE : 0;
         }
     }
     
@@ -49,7 +49,7 @@ public abstract class CropBlockMixin{
         at = @At("HEAD"),
         cancellable = true
     )
-    private void canPlantOnTop(BlockState floor, BlockView world, BlockPos pos, CallbackInfoReturnable<Boolean> cir){
-        cir.setReturnValue(floor.isIn(MoreTags.FARMLAND));
+    private void canPlantOnTop(BlockState floor, BlockView world, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
+        cir.setReturnValue(floor.isIn(MoreBlockTags.FARMLAND));
     }
 }

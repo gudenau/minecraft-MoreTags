@@ -1,4 +1,4 @@
-package net.gudenau.minecraft.moretags.mixins.farmland;
+package net.gudenau.minecraft.moretags.mixins.block.farmland;
 
 import com.google.common.collect.ImmutableSet;
 import net.minecraft.block.Block;

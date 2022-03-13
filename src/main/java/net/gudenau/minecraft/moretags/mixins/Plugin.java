@@ -9,6 +9,7 @@ import java.util.stream.Stream;
 
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.SemanticVersion;
+import net.fabricmc.loader.api.Version;
 import net.fabricmc.loader.api.VersionParsingException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -26,37 +27,18 @@ public final class Plugin implements IMixinConfigPlugin{
         EQUAL_TO((suppliedVersion, expectedVersion)->suppliedVersion.equals(expectedVersion))
         ;
     
-        private final BiPredicate<SemanticVersion, SemanticVersion> predicate;
+        private final BiPredicate<Version, Version> predicate;
     
-        VersionCheckType(BiPredicate<SemanticVersion, SemanticVersion> predicate) {
+        VersionCheckType(BiPredicate<Version, Version> predicate) {
             this.predicate = predicate;
         }
     
-        public boolean test(SemanticVersion suppliedVersion, SemanticVersion expectedVersion) {
+        public boolean test(Version suppliedVersion, Version expectedVersion) {
             return predicate.test(suppliedVersion, expectedVersion);
         }
     }
     
     private enum CompatibilityLayer {
-        FAPI_TAGS("fabric-tag-extensions-v0", "1.2.2", VersionCheckType.OLDER_THAN, (mixinName)->
-            !"net.gudenau.minecraft.moretags.mixins.retro.OldTagApiSupport".equals(mixinName)
-        ),
-        // All the Blocks You Want bulldozes some of our injection points, at least they do the same thing we do...
-        ATBYW("atbyw", null, VersionCheckType.ALWAYS, (mixinName)->
-            switch(mixinName){
-                case "net.gudenau.minecraft.moretags.mixins.bookshelves.EnchantingTableBlockMixin",
-                    "net.gudenau.minecraft.moretags.mixins.bookshelves.EnchantmentScreenHandlerMixin" -> false;
-                default -> true;
-            }
-        ),
-        // BCLib also does their own enchanting tables with the same tag name.
-        BCLIB("bclib", null, VersionCheckType.ALWAYS, (mixinName)->
-            switch(mixinName){
-                case "net.gudenau.minecraft.moretags.mixins.bookshelves.EnchantingTableBlockMixin",
-                    "net.gudenau.minecraft.moretags.mixins.bookshelves.EnchantmentScreenHandlerMixin" -> false;
-                default -> true;
-            }
-        ),
         ;
     
         private final String modId;

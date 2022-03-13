@@ -1,6 +1,6 @@
-package net.gudenau.minecraft.moretags.mixins.stickyblocks;
+package net.gudenau.minecraft.moretags.mixins.block.stickyblocks;
 
-import net.gudenau.minecraft.moretags.MoreTags;
+import net.gudenau.minecraft.moretags.MoreBlockTags;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.piston.PistonHandler;
 import org.spongepowered.asm.mixin.Mixin;
@@ -19,7 +19,7 @@ public abstract class PistonHandlerMixin {
         cancellable = true
     )
     private static void isBlockSticky(BlockState state, CallbackInfoReturnable<Boolean> cir) {
-        cir.setReturnValue(MoreTags.STICKY_BLOCKS.contains(state.getBlock()));
+        cir.setReturnValue(state.isIn(MoreBlockTags.STICKY_BLOCKS));
     }
     
     @Inject(
@@ -31,9 +31,9 @@ public abstract class PistonHandlerMixin {
         var block = state.getBlock();
         var adjacentBlock = adjacentState.getBlock();
         
-        if (block != adjacentBlock && MoreTags.HONEY_BLOCKS.contains(block) && MoreTags.SLIME_BLOCKS.contains(adjacentBlock)) {
+        if (block != adjacentBlock && state.isIn(MoreBlockTags.HONEY_BLOCKS) && state.isIn(MoreBlockTags.SLIME_BLOCKS)) {
             cir.setReturnValue(true);
-        } else if (MoreTags.SLIME_BLOCKS.contains(adjacentBlock) && MoreTags.HONEY_BLOCKS.contains(block)) {
+        } else if (adjacentState.isIn(MoreBlockTags.SLIME_BLOCKS) && state.isIn(MoreBlockTags.HONEY_BLOCKS)) {
             cir.setReturnValue(false);
         } else {
             cir.setReturnValue(isBlockSticky(state) || isBlockSticky(adjacentState));

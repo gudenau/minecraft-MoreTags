@@ -4,17 +4,21 @@
   "package": "net.gudenau.minecraft.moretags.mixins",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
-    "bookshelves.EnchantingTableBlockMixin",
-    "bookshelves.EnchantmentScreenHandlerMixin",
-    "farmland.CropBlockMixin",
-    "farmland.PlantBlockMixin",
-    "farmland.RabbitEntity$EatCarrotCropGoalMixin",
-    "farmland.StemBlockMixin",
-    "farmland.VillagerProfessionAccessor",
-    "retro.OldTagApiSupport",
-    "stickyblocks.PistonHandlerMixin"
-  ],
-  "client": [
+    "block.bookshelves.EnchantingTableBlockMixin",
+    "block.farmland.CropBlockMixin",
+    "block.farmland.PlantBlockMixin",
+    "block.farmland.RabbitEntity$EatCarrotCropGoalMixin",
+    "block.farmland.StemBlockMixin",
+    "block.farmland.VillagerProfessionAccessor",
+    "block.stickyblocks.PistonHandlerMixin",
+    "item.shears.BeehiveBlockMixin",
+    "item.shears.DispenserBlockMixin",
+    "item.shears.EfficiencyEnchantmentMixin",
+    "item.shears.MooshroomEntityMixin",
+    "item.shears.PumpkinBlockMixin",
+    "item.shears.SheepEntityMixin",
+    "item.shears.SnowGolemEntityMixin",
+    "item.shears.TripwireBlockMixin"
   ],
   "plugin": "net.gudenau.minecraft.moretags.mixins.Plugin",
   "injectors": {

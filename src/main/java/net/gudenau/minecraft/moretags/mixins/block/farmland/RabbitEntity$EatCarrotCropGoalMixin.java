@@ -1,6 +1,6 @@
-package net.gudenau.minecraft.moretags.mixins.farmland;
+package net.gudenau.minecraft.moretags.mixins.block.farmland;
 
-import net.gudenau.minecraft.moretags.MoreTags;
+import net.gudenau.minecraft.moretags.MoreBlockTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
@@ -9,7 +9,6 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(targets = "net/minecraft/entity/passive/RabbitEntity$EatCarrotCropGoal")
 public abstract class RabbitEntity$EatCarrotCropGoalMixin{
-    // Loom is dumb at times, this should fix an issue with it.
     @Redirect(
         method = "isTargetPos(Lnet/minecraft/world/WorldView;Lnet/minecraft/util/math/BlockPos;)Z",
         at = @At(
@@ -18,6 +17,6 @@ public abstract class RabbitEntity$EatCarrotCropGoalMixin{
         )
     )
     private boolean isTargetFarmland(BlockState blockState, Block block){
-        return blockState.isIn(MoreTags.FARMLAND);
+        return blockState.isIn(MoreBlockTags.FARMLAND);
     }
 }

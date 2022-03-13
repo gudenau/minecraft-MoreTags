@@ -42,6 +42,7 @@ Adds a bunch of tags to Minecraft for mod authors and data pack authors to use!
 ### Currently added item tags
 
 * skulls
+* shears <br> Affects what items can be used as shears
 
 ---
 
