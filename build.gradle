@@ -7,6 +7,16 @@ archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
 
+repositories {
+	maven {
+		name = 'gudenau\'s maven'
+		url = 'https://maven.gudenau.net'
+		content {
+			includeGroup 'net.gudenau.minecraft'
+		}
+	}
+}
+
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 
@@ -14,7 +24,7 @@ dependencies {
 
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	modImplementation(include(files('./external/MixinFilter-1.0.0.jar')))
+	modImplementation "net.gudenau.minecraft:MixinFilter:${project.mixinfilter_version}"
 }
 
 processResources {
