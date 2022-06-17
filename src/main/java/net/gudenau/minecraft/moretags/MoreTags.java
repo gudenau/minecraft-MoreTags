@@ -4,11 +4,9 @@ import com.google.common.collect.ImmutableSet;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.gudenau.minecraft.moretags.mixins.block.farmland.VillagerProfessionAccessor;
-import net.minecraft.block.Block;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryEntry;
-import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.village.VillagerProfession;
 
 import java.util.List;
@@ -33,7 +31,7 @@ public final class MoreTags implements ModInitializer {
         
         ServerLifecycleEvents.SERVER_STARTED.register((server) -> {
             // Support for farmland, Vanilla assumes it will always be a specific block, and we change that during runtime
-            ((VillagerProfessionAccessor) VillagerProfession.FARMER).setSecondaryJobSites(ImmutableSet.copyOf(MoreBlockTags.listTagEntries(MoreBlockTags.FARMLAND)));
+            ((VillagerProfessionAccessor)(Object) VillagerProfession.FARMER).setSecondaryJobSites(ImmutableSet.copyOf(MoreBlockTags.listTagEntries(MoreBlockTags.FARMLAND)));
         });
     }
     
