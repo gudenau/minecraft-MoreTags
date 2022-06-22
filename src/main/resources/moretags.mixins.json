@@ -9,7 +9,6 @@
     "block.farmland.PlantBlockMixin",
     "block.farmland.RabbitEntity$EatCarrotCropGoalMixin",
     "block.farmland.StemBlockMixin",
-    "block.farmland.VillagerProfessionAccessor",
     "block.stickyblocks.PistonHandlerMixin",
     "item.shears.BeehiveBlockMixin",
     "item.shears.DispenserBlockMixin",

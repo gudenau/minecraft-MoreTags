@@ -24,8 +24,8 @@ public final class Plugin implements IMixinConfigPlugin {
     
     private enum VersionCheckType {
         ALWAYS((suppliedVersion, expectedVersion) -> true),
-        OLDER_THAN((suppliedVersion, expectedVersion) -> suppliedVersion.compareTo(expectedVersion) > 0),
-        NEWER_THAN((suppliedVersion, expectedVersion) -> suppliedVersion.compareTo(expectedVersion) < 0),
+        OLDER_THAN((suppliedVersion, expectedVersion) -> suppliedVersion.compareTo(expectedVersion) < 0),
+        NEWER_THAN((suppliedVersion, expectedVersion) -> suppliedVersion.compareTo(expectedVersion) > 0),
         EQUAL_TO((suppliedVersion, expectedVersion) -> suppliedVersion.equals(expectedVersion)),
         ;
     
