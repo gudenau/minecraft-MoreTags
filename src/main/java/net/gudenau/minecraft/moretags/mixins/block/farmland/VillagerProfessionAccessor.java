@@ -7,6 +7,9 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Mutable;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
+/**
+ * Allows the tag system to modify villager behavior.
+ */
 @Mixin(VillagerProfession.class)
 public interface VillagerProfessionAccessor {
     @Accessor @Mutable void setSecondaryJobSites(ImmutableSet<Block> value);

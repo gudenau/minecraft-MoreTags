@@ -13,6 +13,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+/**
+ * Allows the farmland tags to manipulate how plants work.
+ */
 @Mixin(PlantBlock.class)
 public abstract class PlantBlockMixin {
     @Inject(

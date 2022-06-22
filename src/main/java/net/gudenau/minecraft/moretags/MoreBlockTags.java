@@ -1,15 +1,19 @@
 package net.gudenau.minecraft.moretags;
 
-import net.minecraft.block.*;
+import static net.gudenau.minecraft.moretags.MoreTags.COMMON_NAMESPACE;
+
+import java.util.List;
+import java.util.stream.Stream;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.CropBlock;
+import net.minecraft.block.EnchantingTableBlock;
+import net.minecraft.block.PlantBlock;
+import net.minecraft.block.StemBlock;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-
-import java.util.List;
-import java.util.stream.Stream;
-
-import static net.gudenau.minecraft.moretags.MoreTags.COMMON_NAMESPACE;
 
 /**
  * All of the block tags that this mod provides as well as a couple block tag helpers.
@@ -17,7 +21,9 @@ import static net.gudenau.minecraft.moretags.MoreTags.COMMON_NAMESPACE;
 @SuppressWarnings("unused")
 public final class MoreBlockTags {
     /**
-     * @hidden A simple guard constructor.
+     * A simple guard constructor.
+     *
+     * @hidden
      */
     private MoreBlockTags() {
         throw new RuntimeException("No MoreBlockTags for you!");
@@ -25,14 +31,14 @@ public final class MoreBlockTags {
     
     /**
      * Contains all blocks that can support plants being planted on them.
-     * <p>
-     * This tag influences the behavior of the following classes:
+     *
+     * <p>This tag influences the behavior of the following classes:
      * <ul>
      * <li>{@link PlantBlock}</li>
      * <li>{@link StemBlock}</li>
      * </ul>
-     * <p>
-     * Default entries:
+     *
+     * <p>Default entries:
      * <ul>
      * <li>{@link BlockTags#DIRT #minecraft:dirt}</li>
      * <li>{@link #FARMLAND #c:farmland}</li>
@@ -43,10 +49,10 @@ public final class MoreBlockTags {
     /**
      * Contains all blocks that can be used as enchanting bookshelves. This includes the particle effects and boosting
      * the enchanting level.
-     * <p>
-     * This tag influences the behavior of {@link EnchantingTableBlock}.
-     * <p>
-     * Default entries:
+     *
+     * <p>This tag influences the behavior of {@link EnchantingTableBlock}.
+     *
+     * <p>Default entries:
      * <ul>
      * <li>{@link Blocks#BOOKSHELF minecraft:bookshelf}</li>
      * </ul>
@@ -55,8 +61,8 @@ public final class MoreBlockTags {
     
     /**
      * Contains all blocks that should be considered an "ore".
-     * <p>
-     * Default entries:
+     *
+     * <p>Default entries:
      * <ul>
      * <li>{@link BlockTags#COAL_ORES #minecraft:coal_ores}</li>
      * <li>{@link BlockTags#COPPER_ORES minecraft:copper_ores}</li>
@@ -74,8 +80,8 @@ public final class MoreBlockTags {
     
     /**
      * Contains all wood blocks that the user has stripped by right-clicking with an axe.
-     * <p>
-     * Default entries:
+     *
+     * <p>Default entries:
      * <ul>
      * <li>{@link #STRIPPED_LOGS c:stripped_logs}</li>
      * <li>{@link #STRIPPED_BARK c:stripped_bark}</li>
@@ -85,8 +91,8 @@ public final class MoreBlockTags {
     
     /**
      * Contains all log blocks that the user has stripped by right-clicking with an axe.
-     * <p>
-     * Default entries:
+     *
+     * <p>Default entries:
      * <ul>
      * <li>{@link Blocks#STRIPPED_SPRUCE_LOG minecraft:stripped_spruce_log}</li>
      * <li>{@link Blocks#STRIPPED_BIRCH_LOG minecraft:stripped_birch_log}</li>
@@ -100,8 +106,8 @@ public final class MoreBlockTags {
     
     /**
      * Contains all bark blocks that the user has stripped by right-clicking with an axe.
-     * <p>
-     * Default entries:
+     *
+     * <p>Default entries:
      * <ul>
      * <li>{@link Blocks#STRIPPED_SPRUCE_WOOD minecraft:stripped_spruce_wood}</li>
      * <li>{@link Blocks#STRIPPED_BIRCH_WOOD minecraft:stripped_birch_wood}</li>
@@ -115,8 +121,8 @@ public final class MoreBlockTags {
     
     /**
      * Contains all wood blocks that the user has <b>not</b> stripped by right-clicking with an axe.
-     * <p>
-     * Default entries:
+     *
+     * <p>Default entries:
      * <ul>
      * <li>{@link #DRESSED_LOGS c:dressed_logs}</li>
      * <li>{@link #DRESSED_BARK c:dressed_bark}</li>
@@ -126,8 +132,8 @@ public final class MoreBlockTags {
     
     /**
      * Contains all log blocks that the user has <b>not</b> stripped by right-clicking with an axe.
-     * <p>
-     * Default entries:
+     *
+     * <p>Default entries:
      * <ul>
      * <li>{@link Blocks#SPRUCE_LOG minecraft:spruce_log}</li>
      * <li>{@link Blocks#BIRCH_LOG minecraft:birch_log}</li>
@@ -141,8 +147,8 @@ public final class MoreBlockTags {
     
     /**
      * Contains all bark blocks that the user has <b>not</b> stripped by right-clicking with an axe.
-     * <p>
-     * Default entries:
+     *
+     * <p>Default entries:
      * <ul>
      * <li>{@link Blocks#SPRUCE_WOOD minecraft:spruce_wood}</li>
      * <li>{@link Blocks#BIRCH_WOOD minecraft:birch_wood}</li>
@@ -156,8 +162,8 @@ public final class MoreBlockTags {
     
     /**
      * Contains all glass blocks, including glass panes.
-     * <p>
-     * Default entries:
+     *
+     * <p>Default entries:
      * <ul>
      * <li>{@link #GLASS_BLOCKS c:glass_blocks}</li>
      * <li>{@link #GLASS_PANES c:glass_panes}</li>
@@ -167,8 +173,8 @@ public final class MoreBlockTags {
     
     /**
      * Contains all glass blocks, excluding glass panes.
-     * <p>
-     * Default entries:
+     *
+     * <p>Default entries:
      * <ul>
      * <li>{@link Blocks#GLASS minecraft:glass}</li>
      * <li>{@link Blocks#WHITE_STAINED_GLASS minecraft:white_stained_glass}</li>
@@ -194,8 +200,8 @@ public final class MoreBlockTags {
     
     /**
      * Contains all glass panes.
-     * <p>
-     * Default entries:
+     *
+     * <p>Default entries:
      * <ul>
      * <li>{@link Blocks#GLASS_PANE minecraft:glass_pane}</li>
      * <li>{@link Blocks#WHITE_STAINED_GLASS_PANE minecraft:white_stained_glass_pane}</li>
@@ -220,8 +226,8 @@ public final class MoreBlockTags {
     
     /**
      * Contains all chest blocks.
-     * <p>
-     * Default entries:
+     *
+     * <p>Default entries:
      * <ul>
      * <li>{@link Blocks#CHEST minecraft:chest}</li>
      * <li>{@link Blocks#TRAPPED_CHEST minecraft:trapped_chest}</li>
@@ -232,8 +238,8 @@ public final class MoreBlockTags {
     
     /**
      * Contains all brick blocks.
-     * <p>
-     * Default entries:
+     *
+     * <p>Default entries:
      * <ul>
      * <li>{@link BlockTags#STONE_BRICKS minecraft:stone_bricks}</li>
      * <li>{@link Blocks#BRICKS minecraft:bricks}</li>
@@ -243,8 +249,8 @@ public final class MoreBlockTags {
     
     /**
      * Contains all Silverfish-infested blocks.
-     * <p>
-     * Default entries:
+     *
+     * <p>Default entries:
      * <ul>
      * <li>{@link Blocks#INFESTED_STONE minecraft:infested_stone}</li>
      * <li>{@link Blocks#INFESTED_COBBLESTONE minecraft:infested_cobblestone}</li>
@@ -259,8 +265,8 @@ public final class MoreBlockTags {
     
     /**
      * Contains all skull and head blocks.
-     * <p>
-     * Default entries:
+     *
+     * <p>Default entries:
      * <ul>
      * <li>{@link #FLOOR_SKULLS c:floor_skulls}</li>
      * <li>{@link #WALL_SKULLS c:wall_skulls}</li>
@@ -270,8 +276,8 @@ public final class MoreBlockTags {
     
     /**
      * Contains all skull and head blocks that get placed on walls.
-     * <p>
-     * Default entries:
+     *
+     * <p>Default entries:
      * <ul>
      * <li>{@link Blocks#SKELETON_WALL_SKULL minecraft:skeleton_wall_skull}</li>
      * <li>{@link Blocks#WITHER_SKELETON_WALL_SKULL minecraft:wither_skeleton_wall_skull}</li>
@@ -285,8 +291,8 @@ public final class MoreBlockTags {
     
     /**
      * Contains all skull and head blocks that get place on the floor.
-     * <p>
-     * Default entries:
+     *
+     * <p>Default entries:
      * <ul>
      * <li>{@link Blocks#SKELETON_SKULL minecraft:skeleton_skull}</li>
      * <li>{@link Blocks#WITHER_SKELETON_SKULL minecraft:wither_skeleton_skull}</li>
@@ -300,8 +306,8 @@ public final class MoreBlockTags {
     
     /**
      * Contains all dynamic blocks that either receive or power redstone devices that are not gates or dust.
-     * <p>
-     * Default entries:
+     *
+     * <p>Default entries:
      * <ul>
      * <li>{@link Blocks#DISPENSER minecraft:dispenser}</li>
      * <li>{@link Blocks#DAYLIGHT_DETECTOR minecraft:daylight_detector}</li>
@@ -317,8 +323,8 @@ public final class MoreBlockTags {
     
     /**
      * Contains all rail blocks that either recieve or power redstone devices.
-     * <p>
-     * Default entries:
+     *
+     * <p>Default entries:
      * <ul>
      * <li>{@link Blocks#ACTIVATOR_RAIL minecraft:activator_rail}</li>
      * <li>{@link Blocks#POWERED_RAIL minecraft:powered_rail}</li>
@@ -329,8 +335,8 @@ public final class MoreBlockTags {
     
     /**
      * Contains all redstone dust blocks.
-     * <p>
-     * Default entries:
+     *
+     * <p>Default entries:
      * <ul>
      * <li>{@link Blocks#REDSTONE_WIRE minecraft:redstone_dust}</li>
      * </ul>
@@ -339,8 +345,8 @@ public final class MoreBlockTags {
     
     /**
      * Contains all redstone related blocks.
-     * <p>
-     * Default entries:
+     *
+     * <p>Default entries:
      * <ul>
      * <li>{@link Blocks#REDSTONE_BLOCK minecraft:redstone_block}</li>
      * <li>{@link #REDSTONE_DUST c:redstone_dust}</li>
@@ -352,8 +358,8 @@ public final class MoreBlockTags {
     
     /**
      * Contains all piston blocks.
-     * <p>
-     * Default entries:
+     *
+     * <p>Default entries:
      * <ul>
      * <li>{@link Blocks#PISTON minecraft:piston}</li>
      * <li>{@link Blocks#STICKY_PISTON minecraft:sticky_piston}</li>
@@ -364,8 +370,8 @@ public final class MoreBlockTags {
     
     /**
      * Contains all redstone "gate" blocks.
-     * <p>
-     * Default entries:
+     *
+     * <p>Default entries:
      * <ul>
      * <li>{@link Blocks#REPEATER minecraft:repeater}</li>
      * <li>{@link Blocks#COMPARATOR minecraft:comparator}</li>
@@ -375,8 +381,8 @@ public final class MoreBlockTags {
     
     /**
      * Contains all raw terracotta blocks.
-     * <p>
-     * Default entries:
+     *
+     * <p>Default entries:
      * <ul>
      * <li>{@link Blocks#WHITE_TERRACOTTA minecraft:white_terracotta}</li>
      * <li>{@link Blocks#ORANGE_TERRACOTTA minecraft:orange_terracotta}</li>
@@ -400,8 +406,8 @@ public final class MoreBlockTags {
     
     /**
      * Contains all glazed terracotta blocks.
-     * <p>
-     * Default entries:
+     *
+     * <p>Default entries:
      * <ul>
      * <li>{@link Blocks#WHITE_GLAZED_TERRACOTTA minecraft:white_glazed_terracotta}</li>
      * <li>{@link Blocks#ORANGE_GLAZED_TERRACOTTA minecraft:orange_glazed_terracotta}</li>
@@ -425,8 +431,8 @@ public final class MoreBlockTags {
     
     /**
      * Contains all terracotta blocks, both raw and glazed.
-     * <p>
-     * Default entries:
+     *
+     * <p>Default entries:
      * <ul>
      * <li>{@link #TERRACOTTA c:terracotta}</li>
      * <li>{@link #GLAZED_TERRACOTTA c:glazed_terracotta}</li>
@@ -436,13 +442,13 @@ public final class MoreBlockTags {
     
     /**
      * Contains all sticky blocks. Sticky blocks are blocks that pistons can use to move multiple blocks at a time.
-     * <p>
-     * This tag influences the behavior of the following classes:
+     *
+     * <p>This tag influences the behavior of the following classes:
      * <ul>
      * <li>{@link net.minecraft.block.piston.PistonHandler}
      * </ul>
-     * <p>
-     * Default entries:
+     *
+     * <p>Default entries:
      * <ul>
      * <li>{@link #SLIME_BLOCKS c:slime_blocks}</li>
      * <li>{@link #HONEY_BLOCKS c:honey_blocks}</li>
@@ -452,13 +458,13 @@ public final class MoreBlockTags {
     
     /**
      * Contains all honey blocks.
-     * <p>
-     * This tag influences the behavior of the following classes:
+     *
+     * <p>This tag influences the behavior of the following classes:
      * <ul>
      * <li>{@link net.minecraft.block.piston.PistonHandler}
      * </ul>
-     * <p>
-     * Default entries:
+     *
+     * <p>Default entries:
      * <ul>
      * <li>{@link Blocks#HONEY_BLOCK minecraft:honey_block}</li>
      * </ul>
@@ -467,13 +473,13 @@ public final class MoreBlockTags {
     
     /**
      * Contains all slime blocks.
-     * <p>
-     * This tag influences the behavior of the following classes:
+     *
+     * <p>This tag influences the behavior of the following classes:
      * <ul>
      * <li>{@link net.minecraft.block.piston.PistonHandler}
      * </ul>
-     * <p>
-     * Default entries:
+     *
+     * <p>Default entries:
      * <ul>
      * <li>{@link Blocks#SLIME_BLOCK minecraft:slime_block}</li>
      * </ul>
@@ -482,8 +488,8 @@ public final class MoreBlockTags {
     
     /**
      * Contains all concrete blocks, does not contain the powder variants.
-     * <p>
-     * Default entries:
+     *
+     * <p>Default entries:
      * <ul>
      * <li>{@link Blocks#WHITE_CONCRETE minecraft:white_concrete}</li>
      * <li>{@link Blocks#ORANGE_CONCRETE minecraft:orange_concrete}</li>
@@ -507,8 +513,8 @@ public final class MoreBlockTags {
     
     /**
      * Contains all concrete powder blocks.
-     * <p>
-     * Default entries:
+     *
+     * <p>Default entries:
      * <ul>
      * <li>{@link Blocks#WHITE_CONCRETE_POWDER minecraft:white_concrete_powder}</li>
      * <li>{@link Blocks#ORANGE_CONCRETE_POWDER minecraft:orange_concrete_powder}</li>
@@ -532,17 +538,17 @@ public final class MoreBlockTags {
     
     /**
      * Contains all farmland blocks.
-     * <p>
-     * This tag influences the behavior of the following classes:
+     *
+     * <p>This tag influences the behavior of the following classes:
      * <ul>
      * <li>{@link CropBlock}</li>
      * <li>{@link net.minecraft.entity.passive.RabbitEntity.EatCarrotCropGoal}</li>
      * <li>{@link StemBlock}</li>
      * </ul>
-     * <p>
-     * This tag influences the behavior of {@link net.minecraft.village.VillagerProfession#FARMER farmer Villagers}.
-     * <p>
-     * Default entries:
+     *
+     * <p>This tag influences the behavior of {@link net.minecraft.village.VillagerProfession#FARMER farmer Villagers}.
+     *
+     * <p>Default entries:
      * <ul>
      * <li>{@link #MOIST_FARMLAND c:moist_farmland}</li>
      * <li>{@link Blocks#FARMLAND minecraft:farmland}</li>
@@ -552,9 +558,9 @@ public final class MoreBlockTags {
     public static final TagKey<Block> FARMLAND = createTag("farmland");
     
     /**
-     * Contains all moist farmland blocks:
-     * <p>
-     * This tag influences the behavior of the following classes:
+     * Contains all moist farmland blocks.
+     *
+     * <p>This tag influences the behavior of the following classes:
      * <ul>
      * <li>{@link CropBlock}</li>
      * </ul>
@@ -562,10 +568,11 @@ public final class MoreBlockTags {
     public static final TagKey<Block> MOIST_FARMLAND = createTag("moist_farmland");
     
     /**
-     * @hidden Creates a new {@link TagKey} in the common tag namespace.
+     * A small helper to create a new block tag.
      *
      * @param name The name of the new {@link TagKey}
      * @return The new {@link TagKey}
+     * @hidden Creates a new {@link TagKey} in the common tag namespace.
      * @hidden Creates a new {@link TagKey} in the common tag namespace.
      */
     private static TagKey<Block> createTag(String name) {
@@ -573,9 +580,12 @@ public final class MoreBlockTags {
     }
     
     /**
-     * @hidden Ensures that &lt;clinit&gt; runs.
+     * Ensures that &lt;clinit&gt; runs.
+     *
+     * @hidden
      */
-    static void init() {}
+    static void init() {
+    }
     
     /**
      * Returns a {@link Stream} that contains all {@link Block}s in the provided tag.

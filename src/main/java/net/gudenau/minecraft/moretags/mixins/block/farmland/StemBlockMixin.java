@@ -13,6 +13,9 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+/**
+ * Allows the farmland tags to modify stem behavior.
+ */
 @Mixin(StemBlock.class)
 public abstract class StemBlockMixin {
     @Inject(

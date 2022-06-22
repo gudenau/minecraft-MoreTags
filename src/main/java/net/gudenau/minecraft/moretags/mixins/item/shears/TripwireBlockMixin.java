@@ -9,6 +9,9 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
+/**
+ * Allows the shears tag to modify tripwire behavior.
+ */
 @Mixin(TripwireBlock.class)
 public abstract class TripwireBlockMixin {
     @Redirect(

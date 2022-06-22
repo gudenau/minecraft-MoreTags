@@ -1,15 +1,14 @@
 package net.gudenau.minecraft.moretags;
 
+import static net.gudenau.minecraft.moretags.MoreTags.COMMON_NAMESPACE;
+
+import java.util.List;
+import java.util.stream.Stream;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-
-import java.util.List;
-import java.util.stream.Stream;
-
-import static net.gudenau.minecraft.moretags.MoreTags.COMMON_NAMESPACE;
 
 /**
  * All of the item tags that this mod provides as well as a couple item tag helpers.
@@ -17,7 +16,9 @@ import static net.gudenau.minecraft.moretags.MoreTags.COMMON_NAMESPACE;
 @SuppressWarnings("unused")
 public final class MoreItemTags {
     /**
-     * @hidden A simple guard constructor.
+     * A simple guard constructor.
+     *
+     * @hidden
      */
     private MoreItemTags() {
         throw new RuntimeException("No MoreItemTags for you!");
@@ -26,7 +27,7 @@ public final class MoreItemTags {
     /**
      * Contains all skull items.
      *
-     * Default entries:
+     * <p>Default entries:
      * <ul>
      * <li>{@link Items#SKELETON_SKULL minecraft:skeleton_skull}</li>
      * <li>{@link Items#WITHER_SKELETON_SKULL minecraft:wither_skeleton_skull}</li>
@@ -41,7 +42,7 @@ public final class MoreItemTags {
     /**
      * Contains all sheer items.
      *
-     * Modifies the behavior of the following classes:
+     * <p>Modifies the behavior of the following classes:
      * <ul>
      * <li>{@link net.minecraft.block.BeehiveBlock}</li>
      * <li>{@link net.minecraft.block.DispenserBlock}</li>
@@ -53,7 +54,7 @@ public final class MoreItemTags {
      * <li>{@link net.minecraft.block.TripwireBlock}</li>
      * </ul>
      *
-     * Default entries:
+     * <p>Default entries:
      * <ul>
      * <li>{@link Items#SHEARS minecraft:shears}</li>
      * </ul>
@@ -61,7 +62,9 @@ public final class MoreItemTags {
     public static final TagKey<Item> SHEARS = createTag("shears");
     
     /**
-     * @hidden Creates a new {@link TagKey} in the common tag namespace.
+     * Creates a new {@link TagKey} in the common tag namespace.
+     *
+     * @hidden
      *
      * @param name The name of the new {@link TagKey}
      * @return The new {@link TagKey}
@@ -71,7 +74,9 @@ public final class MoreItemTags {
     }
     
     /**
-     * @hidden Ensures that &lt;clinit&gt; runs.
+     * Ensures that &lt;clinit&gt; runs.
+     *
+     * @hidden
      */
     static void init() {}
     

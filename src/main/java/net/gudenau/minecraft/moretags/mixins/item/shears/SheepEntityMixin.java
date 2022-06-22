@@ -9,6 +9,9 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
+/**
+ * Allows the shears tag to modify sheep behavior.
+ */
 @Mixin(SheepEntity.class)
 public abstract class SheepEntityMixin {
     @Redirect(

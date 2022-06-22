@@ -8,6 +8,9 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
+/**
+ * Allows the shears tag to change how beehives behave.
+ */
 @Mixin(BeehiveBlock.class)
 public abstract class BeehiveBlockMixin {
     @Redirect(

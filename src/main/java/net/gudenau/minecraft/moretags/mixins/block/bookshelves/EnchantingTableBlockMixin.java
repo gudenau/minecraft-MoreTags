@@ -9,6 +9,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+/**
+ * Allows the bookshelves tag to change enchantment level requirements.
+ */
 @Mixin(EnchantingTableBlock.class)
 public abstract class EnchantingTableBlockMixin {
     @Inject(
@@ -16,10 +19,13 @@ public abstract class EnchantingTableBlockMixin {
         at = @At("HEAD"),
         cancellable = true
     )
-    private static void canAccessBookshelf$BlockState$isOf(World world, BlockPos tablePos, BlockPos bookshelfOffset, CallbackInfoReturnable<Boolean> cir) {
+    private static void canAccessBookshelf$BlockState$isOf(
+        World world, BlockPos tablePos, BlockPos bookshelfOffset,
+        CallbackInfoReturnable<Boolean> cir
+    ) {
         cir.setReturnValue(
-            world.getBlockState(tablePos.add(bookshelfOffset)).isIn(MoreBlockTags.BOOKSHELVES) &&
-            world.isAir(tablePos.add(bookshelfOffset.getX() / 2, bookshelfOffset.getY(), bookshelfOffset.getZ() / 2))
+            world.getBlockState(tablePos.add(bookshelfOffset)).isIn(MoreBlockTags.BOOKSHELVES)
+            && world.isAir(tablePos.add(bookshelfOffset.getX() / 2, bookshelfOffset.getY(), bookshelfOffset.getZ() / 2))
         );
     }
 }

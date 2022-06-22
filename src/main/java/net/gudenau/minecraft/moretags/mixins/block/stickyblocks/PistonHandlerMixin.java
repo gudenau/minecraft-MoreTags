@@ -9,6 +9,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+/**
+ * Allows the slime and honey tags to manipulate how pistons work.
+ */
 @Mixin(PistonHandler.class)
 public abstract class PistonHandlerMixin {
     @Shadow private static boolean isBlockSticky(BlockState state) { return false; }

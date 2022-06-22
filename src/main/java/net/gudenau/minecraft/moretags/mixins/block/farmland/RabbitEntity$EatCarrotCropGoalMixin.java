@@ -7,8 +7,11 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
+/**
+ * Allows the farmland tags to modify how rabbits behave.
+ */
 @Mixin(targets = "net/minecraft/entity/passive/RabbitEntity$EatCarrotCropGoal")
-public abstract class RabbitEntity$EatCarrotCropGoalMixin{
+public abstract class RabbitEntity$EatCarrotCropGoalMixin {
     @Redirect(
         method = "isTargetPos(Lnet/minecraft/world/WorldView;Lnet/minecraft/util/math/BlockPos;)Z",
         at = @At(
@@ -16,7 +19,7 @@ public abstract class RabbitEntity$EatCarrotCropGoalMixin{
             target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z"
         )
     )
-    private boolean isTargetFarmland(BlockState blockState, Block block){
+    private boolean isTargetFarmland(BlockState blockState, Block block) {
         return blockState.isIn(MoreBlockTags.FARMLAND);
     }
 }

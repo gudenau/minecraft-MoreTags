@@ -12,6 +12,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+/**
+ * Allows the shears tag to change how the efficiency enchantment works.
+ */
 @Mixin(EfficiencyEnchantment.class)
 public abstract class EfficiencyEnchantmentMixin extends Enchantment {
     private EfficiencyEnchantmentMixin() {
@@ -24,9 +27,9 @@ public abstract class EfficiencyEnchantmentMixin extends Enchantment {
         cancellable = true
     )
     private void isAcceptableItem(ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
-        if(stack.isIn(MoreItemTags.SHEARS)){
+        if (stack.isIn(MoreItemTags.SHEARS)) {
             cir.setReturnValue(true);
-        }else if(stack.getItem() == Items.SHEARS){
+        } else if (stack.getItem() == Items.SHEARS) {
             cir.setReturnValue(super.isAcceptableItem(stack));
         }
     }
