@@ -28,7 +28,11 @@ public abstract class StemBlockMixin {
     }
     
     @Redirect(
-        method = "randomTick",
+        method = {
+            "Lnet/minecraft/block/StemBlock;randomTick(Lnet/minecraft/block/BlockState;Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/BlockPos;Ljava/util/Random;)V",
+            "Lnet/minecraft/block/StemBlock;randomTick(Lnet/minecraft/block/BlockState;Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/BlockPos;Ljava/util/Random;)V",
+            "method_9514"
+        },
         at = @At(
             value = "INVOKE",
             target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z"
@@ -38,8 +42,13 @@ public abstract class StemBlockMixin {
         return instance.isIn(MoreBlockTags.PLANTABLE_BLOCKS);
     }
     
+    
     @Redirect(
-        method = "randomTick",
+        method = {
+            "Lnet/minecraft/block/StemBlock;randomTick(Lnet/minecraft/block/BlockState;Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/BlockPos;Ljava/util/Random;)V",
+            "Lnet/minecraft/block/StemBlock;randomTick(Lnet/minecraft/block/BlockState;Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/BlockPos;Ljava/util/Random;)V",
+            "method_9514"
+        },
         at = @At(
             value = "INVOKE",
             target = "Lnet/minecraft/block/BlockState;isIn(Lnet/minecraft/tag/TagKey;)Z"
