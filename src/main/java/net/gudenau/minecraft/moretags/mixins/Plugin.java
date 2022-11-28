@@ -1,5 +1,9 @@
 package net.gudenau.minecraft.moretags.mixins;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.List;
 import java.util.Set;
 import java.util.function.BiPredicate;
@@ -93,6 +97,28 @@ public final class Plugin implements IMixinConfigPlugin {
     private static final Set<CompatibilityLayer> COMPATIBILITY_LAYERS = Stream.of(CompatibilityLayer.values())
         .filter(CompatibilityLayer::shouldApply)
         .collect(Collectors.toUnmodifiableSet());
+
+    private static final Set<String> BLACKLIST;
+    static {
+        var blacklistPath = FabricLoader.getInstance().getConfigDir()
+                .resolve(Path.of("gud", "more_tags.txt"));
+
+        var blacklist = Set.<String>of();
+        try {
+            if (!Files.isRegularFile(blacklistPath)) {
+                Files.createDirectories(blacklistPath.getParent());
+                Files.createFile(blacklistPath);
+            } else {
+                try(var reader = Files.newBufferedReader(blacklistPath, StandardCharsets.UTF_8)) {
+                    blacklist = reader.lines()
+                        .filter(Predicate.not(String::isBlank))
+                        .map((klass) -> "net.gudenau.minecraft.moretags.mixins." + klass)
+                        .collect(Collectors.toUnmodifiableSet());
+                }
+            }
+        } catch (IOException ignored) {}
+        BLACKLIST = blacklist;
+    }
     
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
@@ -101,7 +127,8 @@ public final class Plugin implements IMixinConfigPlugin {
                 return false;
             }
         }
-        return true;
+
+        return !BLACKLIST.contains(mixinClassName);
     }
     
     @Override
